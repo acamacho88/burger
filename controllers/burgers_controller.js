@@ -22,7 +22,7 @@ router.post("/api/burgers", function (req, res) {
 });
 
 router.put("/api/burgers/:id", function (req, res) {
-    burger.update(req.params.id, function (result) {
+    burger.update(req.body.updateCol, req.body.updateVal, req.params.id, function (result) {
         if (result.changedRows == 0) {
             return res.status(404).end();
         } else {

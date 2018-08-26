@@ -1,0 +1,36 @@
+* {
+    text-align: center;
+}
+
+body {
+    background-color: lightsalmon;
+}
+
+img {
+    height: 100px;
+}
+
+.readyburger p {
+    width: 200px;
+    height: 40px;
+    background-color: white;
+    margin: 5px 0px 5px 0px;
+}
+
+.updatefield {
+    margin: 5px 0px 5px 0px;
+}
+
+#available {
+    width: 50%;
+    float: left;
+}
+
+#devoured {
+    width: 50%;
+    float: right;
+}
+
+form {
+    clear: both;
+}

@@ -1,11 +1,39 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function () {
+    $(".updatefield").keypress(function (event) {
+        if (event.which == 13) {
+
+            event.preventDefault();
+
+            var id = $(this).data("id");
+
+            var updateData = {
+                updateCol: "burger_name",
+                updateVal: $(this).val().trim()
+            };
+
+            $.ajax("/api/burgers/" + id, {
+                type: "PUT",
+                data: updateData
+            }).then(function () {
+                console.log("updated burger name");
+                location.reload();
+            })
+        }
+    });
+
     $(".devourbtn").on("click", function (event) {
         var id = $(this).data("id");
 
+        var updateData = {
+            updateCol: "devoured",
+            updateVal: true
+        }
+
         // Send the PUT request.
         $.ajax("/api/burgers/" + id, {
-            type: "PUT"
+            type: "PUT",
+            data: updateData
         }).then(
             function () {
                 location.reload();
@@ -14,7 +42,6 @@ $(function () {
     });
 
     $(".create-form").on("submit", function (event) {
-        console.log("here lalalalal");
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
 

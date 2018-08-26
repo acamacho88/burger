@@ -2,19 +2,19 @@
 
 <h1>Mmmm burgers...</h1>
 
-<ul>
+<ul id="available">
     {{#each burgers}} {{#unless devoured}}
-    <li>
+    <li class="readyburger">
         <p>{{id}}. {{burger_name}}</p>
         <button data-id="{{id}}" class="devourbtn">Devour it!</button>
     </li>
     {{/unless}} {{/each}}
 </ul>
 
-<ul>
+<ul id="devoured">
     {{#each burgers}} {{#if devoured}}
-    <li>
-        {{burger_name}}
+    <li class="devouredburger">
+        <input type="text" data-id="{{id}}" class="updatefield" placeholder="{{id}}. {{burger_name}}">
     </li>
     {{/if}} {{/each}}
 </ul>
