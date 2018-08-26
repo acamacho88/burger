@@ -27,7 +27,7 @@ $(function () {
 
         var updateData = {
             updateCol: "devoured",
-            updateVal: true
+            updateVal: "true"
         }
 
         // Send the PUT request.
